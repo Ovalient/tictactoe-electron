@@ -1,0 +1,66 @@
+{
+  "name": "01_tictactoe-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:osx": "electron-builder --mac", 
+    "build:linux": "npm run build:linux32 && npm run build:linux64", 
+    "build:linux32": "electron-builder --linux --ia32", 
+    "build:linux64": "electron-builder --linux --x64", 
+    "build:win": "npm run build:win32 && npm run build:win64", 
+    "build:win32": "electron-builder --win --ia32", 
+    "build:win64": "electron-builder --win --x64"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "10.1.5",
+    "electron-builder": "^22.9.1"
+  },
+  "build": {
+    "appId": "com.parrottkim.tictactoe",
+    "productName": "Tic Tac Toe",
+    "asar": true,
+    "mac": {
+      "target": [
+        "default"
+      ],
+      "icon": "icon.ico"
+    },
+    "dmg": {
+      "title": "Tic Tac Toe",
+      "icon": "icon.ico"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "zip",
+        "tar.gz"
+      ],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "icon.ico",
+      "createDesktopShortcut": true
+    }
+  }
+}
